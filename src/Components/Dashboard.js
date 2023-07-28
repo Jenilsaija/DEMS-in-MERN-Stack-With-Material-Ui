@@ -9,7 +9,7 @@ import { Divider, IconButton, Typography } from '@mui/material';
 import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
 import LibraryAddRoundedIcon from "@mui/icons-material/LibraryAddRounded";
 import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
-
+import {useNavigate} from 'react-router-dom';
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   textAlign: 'center',
@@ -21,8 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const lightTheme = createTheme({ palette: { mode: 'light' } });
 const Dashboard = () => {
   const {expenseslist,setExpensesList}=useContext(ExpenseContext);
-  let sum=0;
-
+  const navigate=useNavigate();
   useEffect(()=>{
     getExpenses();
     // eslint-disable-next-line
@@ -30,7 +29,7 @@ const Dashboard = () => {
 
   const getExpenses=async()=>{
     if(localStorage.getItem("auth-token")){
-    await axios.get("http://localhost:5000/api/expense/fetchall",{
+    await axios.get("https://exmbackend.onrender.com/api/expense/fetchall",{
       "headers":{
         "Content-Type":"application/json",
         "auth-token": localStorage.getItem("auth-token")
@@ -41,12 +40,14 @@ const Dashboard = () => {
   }
 
   const getTotalExpense=()=>{
-    
-    expenseslist.forEach((e)=>{
-      sum=sum+e.amount
-    });
+    let sum=0;
+    const data=expenseslist;
+    data.forEach(element => {
+      sum=sum+parseInt(element.amount);
+    })
     return sum;
   }
+
   return (
     <div>
       <Typography fontSize={30} >Dashboard</Typography>
@@ -63,26 +64,26 @@ const Dashboard = () => {
               }}
             >   
                 <Item elevation={12} height="100%">
-                  <IconButton sx={{height:"100%",width:"100%"}}>
+                  <IconButton sx={{height:"100%",width:"100%"}} onClick={()=>{navigate("/")}}>
                     <GridViewRoundedIcon sx={{marginRight:"5px"}}/>
                     <Typography>Dashboard</Typography>
                   </IconButton>
                 </Item>
                 <Item elevation={12} height="100%">
-                  <IconButton sx={{height:"100%",width:"100%"}}>
+                  <IconButton sx={{height:"100%",width:"100%"}} onClick={()=>{navigate("/addexpense")}}>
                     <LibraryAddRoundedIcon sx={{marginRight:"5px"}}/>
                     <Typography>Add Expenses</Typography>
                   </IconButton>
                 </Item>
                 <Item elevation={12} height="100%">
-                  <IconButton sx={{height:"100%",width:"100%"}}>
+                  <IconButton sx={{height:"100%",width:"100%"}} onClick={()=>{navigate("/addtransaction")}}>
                     <LibraryAddRoundedIcon sx={{marginRight:"5px"}}/>
                     <Typography>Add Transaction</Typography>
                   </IconButton>
                 </Item>
                 <Item elevation={12} height="100%">
                   <IconButton sx={{height:"100%",width:"100%"}}>
-                    <AttachMoneyRoundedIcon sx={{marginRight:"5px"}}/>
+                    <AttachMoneyRoundedIcon sx={{marginRight:"5px"}} onClick={()=>{navigate("/showexpense")}}/>
                     <Typography>Manage Expense</Typography>
                   </IconButton>
                 </Item>

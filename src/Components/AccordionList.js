@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   List,
   ListSubheader,
@@ -6,8 +6,28 @@ import {
 } from '@mui/material';
 import AccordionItem from './AccordionItem';
 import ExpenseContext from '../Context/ExpenseContext';
+import axios from 'axios';
 const AccordionList = () => {
-  const {expenseslist}=useContext(ExpenseContext);
+  const {expenseslist,setExpensesList}=useContext(ExpenseContext);
+  const getExpenses=async()=>{
+    if(localStorage.getItem("auth-token")){
+    await axios.get("https://exmbackend.onrender.com/api/expense/fetchall",{
+      "headers":{
+        "Content-Type":"application/json",
+        "auth-token": localStorage.getItem("auth-token")
+      }
+    }).then((res)=>{
+      setExpensesList(res.data);
+    })}
+  }
+
+  useEffect(()=>{
+    if(expenseslist.length===0){
+      getExpenses();
+    }
+    // eslint-disable-next-line
+  },[])
+
   return (
     <div>
       

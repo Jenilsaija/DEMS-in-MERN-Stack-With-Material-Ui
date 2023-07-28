@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "my-exm-in-react"
+  },
+  "targets": {
+    "my-exm-in-react": {
+      "hosting": {
+        "app": [
+          "myexm176"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

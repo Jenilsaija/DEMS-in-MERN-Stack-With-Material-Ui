@@ -43,7 +43,7 @@ const AccordionItem = ({ exp, index }) => {
     if(localStorage.getItem("auth-token")){
     let newarr=expenseslist.filter((e)=>{if(e._id!==id){return e} return null});
     setExpensesList(newarr);
-    await axios.delete("http://localhost:5000/api/expense/delete/"+id,
+    await axios.delete("https://exmbackend.onrender.com/api/expense/delete/"+id,
     {"headers":{
       "Content-Type":"application/json",
       "auth-token": localStorage.getItem("auth-token")

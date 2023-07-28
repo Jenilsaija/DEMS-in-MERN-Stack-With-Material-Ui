@@ -45,7 +45,7 @@ export default function Login() {
       password: data.get("password"),
     };
     await axios
-      .post("http://localhost:5000/api/auth/login", obj)
+      .post("https://exmbackend.onrender.com/api/auth/login", obj)
       .then((res) => {
         localStorage.setItem("auth-token", res.data.authtoken);
         navigate("/");
@@ -86,7 +86,7 @@ export default function Login() {
               alignItems: "center",
             }}
           > 
-            <img src="./logo2.png" style={{width:"50%",height:"100%"}} alt="DEMS Logo"></img>
+            <img src="./Logo3.png" style={{width:"50%",height:"100%",marginBottom:"20px"}} alt="DEMS Logo"/>
             <Typography component="h1" variant="h4">
               Sign in
             </Typography>

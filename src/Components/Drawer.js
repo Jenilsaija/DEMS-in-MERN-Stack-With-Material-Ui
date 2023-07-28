@@ -70,13 +70,14 @@ function MyDrawer(props) {
 
   const drawer = (
     <div>
-      <img src="./logo3.png" width={"100%"} height={"150px"} alt="DEMS LOGO" style={{margin:"5px",padding:"5px"}}/>
+      <img src="./Logo3.png" width={"100%"} height={"150px"} alt="DEMS LOGO" style={{margin:"5px",padding:"5px"}}/>
       <Divider />
       <List>
         {menuitem[0].map((text, index) => (
           <Link
             to={menuitemlink[0][index]}
             key={text}
+            onClick={handleDrawerToggle}
             style={{ textDecoration: "none", color: "Black" }}
           >
             <ListItem key={text} disablePadding>
@@ -131,9 +132,13 @@ function MyDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
+
+          <Link to={"/"} style={{color:"white",textDecoration:"none"}}>          
           <Typography variant="h6" noWrap component="div">
             Expense Manager
           </Typography>
+          </Link>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton

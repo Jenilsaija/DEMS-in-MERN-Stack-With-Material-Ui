@@ -50,7 +50,7 @@ const ExpenseForm = (props) => {
   const onSubmitclick = async () => {
     if(localStorage.getItem("auth-token")){
     await axios
-      .post("http://localhost:5000/api/expense/add", expense, {
+      .post("https://exmbackend.onrender.com/api/expense/add", expense, {
         headers: {
           "Content-Type": "application/json",
           "auth-token": localStorage.getItem("auth-token"),
@@ -83,7 +83,7 @@ const ExpenseForm = (props) => {
       "category":expense.category
     }
     
-    await axios.put("http://localhost:5000/api/expense/update/"+expense._id,obj,{
+    await axios.put("https://exmbackend.onrender.com/api/expense/update/"+expense._id,obj,{
       "headers":{
         "Content-Type":"application/json",
         "auth-token": localStorage.getItem("auth-token")
