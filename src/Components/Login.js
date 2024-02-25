@@ -45,7 +45,7 @@ export default function Login() {
       password: data.get("password"),
     };
     await axios
-      .post("https://exmbackend.onrender.com/api/auth/login", obj)
+      .post("https://localhost:4000/api/auth/login", obj)
       .then((res) => {
         localStorage.setItem("auth-token", res.data.authtoken);
         navigate("/");
