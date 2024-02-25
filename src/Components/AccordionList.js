@@ -11,7 +11,7 @@ const AccordionList = () => {
   const {expenseslist,setExpensesList}=useContext(ExpenseContext);
   const getExpenses=async()=>{
     if(localStorage.getItem("auth-token")){
-    await axios.get("https://exmbackend.onrender.com/api/expense/fetchall",{
+    await axios.get("https://localhost:4000/api/expense/fetchall",{
       "headers":{
         "Content-Type":"application/json",
         "auth-token": localStorage.getItem("auth-token")
