@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const mongoURI="mongodb+srv://Jenil176:Jenil%4053645@cluster0.eluqlx3.mongodb.net/";
+const mongoURI="enter your db url";
 mongoose.set('strictQuery', true);
 const connectToMongo=()=>{
     mongoose.connect(mongoURI,{dbName:'DEMS'}).then(()=>{
