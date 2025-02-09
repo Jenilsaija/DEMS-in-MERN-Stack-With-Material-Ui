@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Expense Management App (MERN Stack + Material UI)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This is a simple Expense Management application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack with Material UI for styling. The app allows users to track their expenses, manage categories, and view spending.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- User Authentication (Login/Signup)
+- Add, Edit, and Delete Expenses
+- Categorize Expenses
+- Monthly Expense Summary
+- Responsive UI with Material UI
+- Secure Backend with JWT Authentication
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend:
 
-### `npm test`
+- React.js
+- Material UI
+- Axios
+- Redux (if used for state management)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend:
 
-### `npm run build`
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT Authentication
+- bcrypt.js (for password hashing)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation & Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ensure you have the following installed on your system:
 
-### `npm run eject`
+- Node.js
+- MongoDB
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Steps to Run Locally:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Clone the Repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+git clone https://github.com/yourusername/expense-management.git
+cd expense-management
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Install Dependencies:
 
-## Learn More
+##### Backend:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+cd backend
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##### Frontend:
 
-### Code Splitting
+```sh
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Configure Environment Variables:
 
-### Analyzing the Bundle Size
+add mongodb uri in the backend\db.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Start the Application:
 
-### Making a Progressive Web App
+##### Start Backend Server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```sh
+cd server
+npm start
+```
 
-### Advanced Configuration
+##### Start Frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```sh
+npm start
+```
 
-### Deployment
+The application will run on `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to contribute to this project by opening issues or submitting pull requests.
